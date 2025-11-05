@@ -1,0 +1,82 @@
+services:
+  coordinator:
+    build: .
+    container_name: coordinator
+    volumes:
+      - ./coordinator.py:/app/coordinator.py
+      - ./txt:/app/txt
+    environment:
+      - NUM_MAP_WORKERS=3
+      - NUM_REDUCE_WORKERS=3
+    command: python coordinator.py
+    depends_on:
+      - worker-1
+      - worker-2
+      - worker-3
+      - worker-4
+      - worker-5
+      - worker-6
+      - worker-7
+      - worker-8
+    networks:
+      - mapreduce-net
+
+  worker-1:
+    build: .
+    container_name: worker-1
+    hostname: worker-1
+    networks:
+      - mapreduce-net
+
+  worker-2:
+    build: .
+    container_name: worker-2
+    hostname: worker-2
+    networks:
+      - mapreduce-net
+
+  worker-3:
+    build: .
+    container_name: worker-3
+    hostname: worker-3
+    networks:
+      - mapreduce-net
+
+  worker-4:
+    build: .
+    container_name: worker-4
+    hostname: worker-4
+    networks:
+      - mapreduce-net
+
+  worker-5:
+    build: .
+    container_name: worker-5
+    hostname: worker-5
+    networks:
+      - mapreduce-net
+
+  worker-6:
+    build: .
+    container_name: worker-6
+    hostname: worker-6
+    networks:
+      - mapreduce-net
+
+  worker-7:
+    build: .
+    container_name: worker-7
+    hostname: worker-7
+    networks:
+      - mapreduce-net
+
+  worker-8:
+    build: .
+    container_name: worker-8
+    hostname: worker-8
+    networks:
+      - mapreduce-net
+
+networks:
+  mapreduce-net:
+    driver: bridge
