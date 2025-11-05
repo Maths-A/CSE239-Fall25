@@ -22,6 +22,13 @@ This project implements a distributed word count system using the MapReduce para
 
 ## Installation
 
+### Clone from GitHub
+
+```bash
+git clone https://github.com/Maths-A/CSE239-Fall25.git
+cd HW 2
+```
+
 ### Docker Setup
 
 ```bash
