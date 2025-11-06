@@ -5,10 +5,6 @@ services:
     volumes:
       - ./coordinator.py:/app/coordinator.py
       - ./txt:/app/txt
-    environment:
-      - NUM_MAP_WORKERS=3
-      - NUM_REDUCE_WORKERS=3
-    command: python coordinator.py
     depends_on:
       - worker-1
       - worker-2

@@ -32,6 +32,7 @@ cd HW 2
 ### Docker Setup
 
 ```bash
+cd Repo
 docker-compose build
 ```
 
@@ -40,19 +41,18 @@ docker-compose build
 ### Running with Docker Compose
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
-This will:
-1. Start multiple worker containers
-2. Run the coordinator
-3. Download and process the enwik8 dataset
-4. Display top 20 most frequent words
+This will start the coordinator and multiple worker containers.
 
 ### Running
 
-1. Run the coordinator:
+1. Run the coordinator
+You should open the integrated terminal of the coordinator container
+
 ```bash
+docker exec -it coordinator sh
 python coordinator.py [URL] [NUM_MAP_WORKERS] [NUM_REDUCE_WORKERS]
 ```
 
@@ -65,6 +65,11 @@ python coordinator.py [URL] [NUM_MAP_WORKERS] [NUM_REDUCE_WORKERS]
 ```bash
 python coordinator.py https://mattmahoney.net/dc/enwik8.zip 4 4
 ```
+
+This will:
+1. Run the coordinator
+2. Download and process the dataset
+3. Display top 20 most frequent words
 
 ## Output Example
 
